@@ -7,17 +7,26 @@
   <title>Document</title>
   <style>
     #cartel {
-
+      background-color: yellow;
+      height: 100px;
+      width: 300px;
+      position: fixed;
     }
   </style>
 </head>
 <body>
   <div id="cartel"></div>
   <script>
-    function coordenadas() {
-      
+    let cartel = document.getElementById("cartel");
+    document.addEventListener('mousemove', coordenadas);
+    
+    function coordenadas(e) {
+      cartel.innerHTML = (`clientX: ${e.clientX}px, clientY: ${e.clientY}px <br> 
+      screenX: ${e.screenX}px, screenY: ${e.screenY}px`); 
+
+      cartel.style.left = e.clientX + "px";
+      cartel.style.top = e.clientY + "px"
     }
-    document.addEventListener('mouseover', coordenadas);
 
   </script>
 </body>
